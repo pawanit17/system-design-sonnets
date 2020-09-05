@@ -2,9 +2,15 @@
 system-design-sonnets is a collection of system design concepts and principles that help in both progression towards an architect role in your organization as well as for cracking product based companies which stress not only on the coding ability, but also on the architectural part.
 
 Some good resources on which this content is researched upon are:
-https://github.com/donnemartin/system-design-primer#system-design-topics-start-here
-https://www.flexera.com/blog/cloud/dns-load-balancing-and-using-multiple-load-balancers-in-the-cloud/
-https://kemptechnologies.com/load-balancer/load-balancing-algorithms-techniques/
+Overall Topics: https://github.com/donnemartin/system-design-primer#system-design-topics-start-here
+Multiple Load Balancers: https://www.flexera.com/blog/cloud/dns-load-balancing-and-using-multiple-load-balancers-in-the-cloud/
+Load Balancing Techniques: https://kemptechnologies.com/load-balancer/load-balancing-algorithms-techniques/
+CAP Theorem: https://www.youtube.com/watch?v=k-Yaq8AHlFA
+
+# Centralized vs Distributed Systems
+
+- Centralized systems have everything on the same machine. They offer single point of failures.
+- Distributed systems have blocks which are running on different nodes ( machines ). This provides seperation and helps in extending the architecture per need in future by adding redundance/replication.
 
 # System Design - Why is it needed, a short intro
 
