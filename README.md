@@ -180,6 +180,19 @@ Load balancers always do a Heartbeat check on the web servers that it is managin
 
 Most implementations also route these messages in the form of logs to Splunk or to ElasticSearch/LogStash so that the visualization could happen in Kibana to understand in more depth as to what cause the interruption of service.
 
+### Apache Zookeeper
+
+
+
+Zookeeper helps in
+
+ - Distributed configuration management
+ - Select election / consensus building
+ - Coordination and locks
+ - Able to store Key value stores used for configurations.
+ - Used by Hadoop, Kafka.
+
+
 Database Indexes
 Consistent Hashing
 Distributed Hashing
