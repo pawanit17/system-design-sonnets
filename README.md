@@ -11,6 +11,7 @@ system-design-sonnets is a collection of system design concepts and principles t
 - Forward Proxy vs Reverse Proxy vs Load Balancers: https://www.youtube.com/watch?v=MiqrArNSxSM
 - Heartbeat Systems: https://medium.com/@adhorn/patterns-for-resilient-architecture-part-3-16e8601c488e
 - API Gateways: https://www.nginx.com/blog/building-microservices-using-an-api-gateway/
+- Zookeeper: https://lucidworks.com/post/how-to-use-apache-zookeeper-to-build-distributed-apps-and-why/
 
 
 # Centralized vs Distributed Systems
@@ -181,8 +182,8 @@ Load balancers always do a Heartbeat check on the web servers that it is managin
 Most implementations also route these messages in the form of logs to Splunk or to ElasticSearch/LogStash so that the visualization could happen in Kibana to understand in more depth as to what cause the interruption of service.
 
 ### Apache Zookeeper
-
-
+ 
+A tried and tested Apache project for co-oridnation between distributed applications. Zookeeper is used by other Apache projects like Hadoop, Hbase, HDFS, Solr. It is also used by Kafka & Pulsar as well. 
 
 Zookeeper helps in
 
@@ -190,7 +191,7 @@ Zookeeper helps in
  - Select election / consensus building
  - Coordination and locks
  - Able to store Key value stores used for configurations.
- - Used by Hadoop, Kafka.
+ - Used by Hadoop, Kafka, Pulsar, Solr
 
 
 Database Indexes
@@ -198,7 +199,6 @@ Consistent Hashing
 Distributed Hashing
 Dynamic Sharding
 Storing/Sorting large data
-Zookeeper - elections
 NoSQL databases
 CAP Theorem
 Distributed File System Design
