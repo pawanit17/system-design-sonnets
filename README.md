@@ -12,6 +12,7 @@ system-design-sonnets is a collection of system design concepts and principles t
 - Heartbeat Systems: https://medium.com/@adhorn/patterns-for-resilient-architecture-part-3-16e8601c488e
 - API Gateways: https://www.nginx.com/blog/building-microservices-using-an-api-gateway/
 - Zookeeper: https://lucidworks.com/post/how-to-use-apache-zookeeper-to-build-distributed-apps-and-why/
+- Bloom Filters: https://www.youtube.com/watch?v=bgzUdBVr5tE https://www.youtube.com/watch?v=heEDL9usFgs
 
 
 # Centralized vs Distributed Systems
@@ -181,7 +182,7 @@ Load balancers always do a Heartbeat check on the web servers that it is managin
 
 Most implementations also route these messages in the form of logs to Splunk or to ElasticSearch/LogStash so that the visualization could happen in Kibana to understand in more depth as to what cause the interruption of service.
 
-### Apache Zookeeper
+## Apache Zookeeper
  
 A tried and tested Apache project for co-oridnation between distributed applications. Zookeeper is used by other Apache projects like Hadoop, Hbase, HDFS, Solr. It is also used by Kafka & Pulsar as well. 
 
@@ -195,17 +196,41 @@ Zookeeper helps in
  - Able to store Key value stores used for configurations.
  - Used by Hadoop, Kafka, Pulsar, Solr
 
+## CAP Theorem
+All distributed systems sufffer from partitions - network failures for example. So the extent to which Availability of a distributed system could be studied is using CAP Theorem. 
 
-Database Indexes
+- **C**onsistency
+- **A**vailability
+- **P**artition Tolerance
+
+In the event of failures, a Distributed system is broken into Partitions. In such case, the design of the distributed system can either favor Consistency or Availability but not both.
+
+**Working Example** - Assume that there is an ATM machine that is not connected to the central server. So when a user walks up and requests for withdrawal,
+ - ***Consistent design*** would let the request by the user to be rejected. Ex: Financial transactions.
+ - ***Availability design*** would let the request to be processed. Ex: Book reviews systems.
+
+## Bloom Filters
+
+- They are a probabilistic datastructure that tells if an entry is in a collection.
+- Correct at giving TRUE POSITIVES all the time - case where the datastruture says that an entry is present in it when it really is present.
+- Cannot give you a a FALSE NEGATIVE - case where the datastructure says that an entry is present when infact it is not.
+- Can give you a FALSE POSITIVE - case where the datastructure says that an entry is present when infact it is not.
+
+
+
+
+
+
 Consistent Hashing
+Database Indexes
 Distributed Hashing
 Dynamic Sharding
 Storing/Sorting large data
 NoSQL databases
-CAP Theorem
 Distributed File System Design
 OAuth & JWT
 Multi Region Clusters
 Streaming Data
 Message Queues
+
 
