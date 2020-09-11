@@ -185,6 +185,8 @@ Most implementations also route these messages in the form of logs to Splunk or 
  
 A tried and tested Apache project for co-oridnation between distributed applications. Zookeeper is used by other Apache projects like Hadoop, Hbase, HDFS, Solr. It is also used by Kafka & Pulsar as well. 
 
+***In the CAP philosophy, Zookeeper comes in the CP category.*** That means Zookeeper is oriented towards greater consistency. This is extremely crucial for banking related applications. ***Cassandra would come in the AP categoy which gives greater availability though.***
+
 Zookeeper helps in
 
  - Distributed configuration management
