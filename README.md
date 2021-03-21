@@ -210,16 +210,14 @@ In the event of failures, a Distributed system is broken into Partitions. In suc
  - ***Consistent design*** would let the request by the user to be rejected. Ex: Financial transactions.
  - ***Availability design*** would let the request to be processed. Ex: Book reviews systems.
 
+![image](https://user-images.githubusercontent.com/42272776/111916555-86bf8c00-8aa1-11eb-91b5-e82fef1f672d.png)
+
 ## Bloom Filters
 
 - They are a probabilistic datastructure that tells if an entry is in a collection.
 - Correct at giving TRUE POSITIVES all the time - case where the datastruture says that an entry is present in it when it really is present.
 - Cannot give you a a FALSE NEGATIVE - case where the datastructure says that an entry is present when infact it is not.
 - Can give you a FALSE POSITIVE - case where the datastructure says that an entry is present when infact it is not.
-
-
-
-
 
 
 Consistent Hashing
@@ -237,5 +235,7 @@ Database design
 1,2,3 Normal Forms
 Database partition
 When to use which NOSQL Database?.
+https://www.youtube.com/watch?v=v5e_PasMdXc
+https://medium.com/swlh/log-structured-merge-trees-9c8e2bea89e8
 
 
