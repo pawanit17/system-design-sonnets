@@ -232,5 +232,9 @@ OAuth & JWT
 Multi Region Clusters
 Streaming Data
 Message Queues
+Database design
+1,2,3 Normal Forms
+Database partition
+When to use which NOSQL Database?.
 
 
