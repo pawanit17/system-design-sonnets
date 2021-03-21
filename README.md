@@ -13,7 +13,8 @@ system-design-sonnets is a collection of system design concepts and principles t
 - API Gateways: https://www.nginx.com/blog/building-microservices-using-an-api-gateway/
 - Zookeeper: https://lucidworks.com/post/how-to-use-apache-zookeeper-to-build-distributed-apps-and-why/
 - Bloom Filters: https://www.youtube.com/watch?v=bgzUdBVr5tE https://www.youtube.com/watch?v=heEDL9usFgs
-
+- Cassandra: https://blog.discord.com/how-discord-stores-billions-of-messages-7fa6ec7ee4c7
+- UUID: https://blog.twitter.com/engineering/en_us/a/2010/announcing-snowflake.html
 
 # Centralized vs Distributed Systems
 
