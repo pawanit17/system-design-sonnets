@@ -239,3 +239,86 @@ https://www.youtube.com/watch?v=v5e_PasMdXc
 https://medium.com/swlh/log-structured-merge-trees-9c8e2bea89e8
 
 
+# AlgoExpert
+- Understand what all things you want to build
+- Pick the most important components and prepare estimates
+  - Memory, Bandwidth etc
+- 
+## Design Netflix
+- Questions
+  - Which sub-functions should be focuessed on?.
+  - Do we want to focus on authentication / payments / profile?.
+  - How many users are we expecting to have?.
+    - 200M
+  - Is our goal high availability and low latency?.
+  - Are we targetting global audience?.
+  - Can the Recommendation system be a background process. 
+  
+## Approach
+- Data
+  - Videos
+  - User metadata
+  - Static content
+  - Logs
+- Estimates
+  - Videos
+    - Assume 10000 movies
+    - Different video resolutions - Standard and HD
+    - Average video length 1 hour - Standard 10GB and HD 20GB
+      - 10000 movies * 30GB = 300k GB = 300TB
+    - Use S3 storage for this.
+  - User Metadata
+    -  What all the user has watched, where he left off for a video etc.
+    -  Assuming 200M users and that each user watches 2 movies/shows per week, in one year, that would be 100 shows.
+    -  If the average time a user is on Netflix is 10 years, it would be 1000 * lets say, 100bytes per video = 100KB.
+    -  For all users 200M * 100KB = 20TB of metadata information.
+    -  Can be stored in a PostGRE database which is sharded based on User ID.
+    -  RDBMS because an admin might want to run queries to compare watch histories of two different people and draw some reports.
+  - Static content
+    - Includes subtitles, titles, cast, ratings etc.
+    - RDBMS or MongoDB can be used and part of this could be cached at our API servers.
+  - Bandwidth
+    - Total 200M users. 5% concurrent users - 10M at peak hours in HD.
+    - 10M * 20GB/hour = 10M * 20GB/4k seconds = 50TBps
+    - Need to be spread out to multiple locations as the frequency ask is too high.
+  - Video Content Delivery
+    - As seen above, if a new movie comes up, it is difficult to stream it out of a single datacenter itself.
+    - We can use CDN. CDN should have a cache of videos.
+    - CDNs can have thousands of Points of Presence.
+    - Since CDN cannot have all the content, we need to have a service that will be populating the cache with updates.
+  - API Servers
+    - A round robin scheme can be employed to distribute end user network requests across our API servers.
+    - These are hit when a user tries to access the system.
+    - So a cache layer can be put to include user metadata.
+  - Logs - Recommendation Engine
+    - Store logs in HDFS
+    - Async Map Reduce jobs that process data from HDFS
+    - |UserID:"uid1"|event:"Type"|VideoID:"videoID1"|
+    - Map: uid1: { (video1,Pause), (video2, Play) }
+    - Reduce: Data pipeline + Machine learning model
+      - uid1: { v1,v2,v3 }
+- System Design
+![image](https://user-images.githubusercontent.com/42272776/115126791-71317980-9fef-11eb-867b-91a67843cbd6.png)
+
+## My questions
+- When to use a reverse proxy?.
+- How do you ensure that the right videos are cached at CDN?.
+- IXP vs Public points of CDN partnered with AT&T / Verizon.
+- Authentication fror data requests to CDN?.
+- Write through cache policy?.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
