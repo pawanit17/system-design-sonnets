@@ -300,6 +300,14 @@ https://medium.com/swlh/log-structured-merge-trees-9c8e2bea89e8
 - System Design
 ![image](https://user-images.githubusercontent.com/42272776/115126791-71317980-9fef-11eb-867b-91a67843cbd6.png)
 
+- Video Process and Serving
+  - To convert videos into different formats, Netflix uses a cron job that operates on chunks of Movies/Shows and converts them into the appropriate codec.
+  - When you are watching a video, sometimes there will be lags. This is mainly because there is an API call fired to get the next part of the video.
+  - This is because the entire video is broken into multiple chunks and during an API call, the corresponding chunk will be returned.
+  - To reduce this sort of delays, instead of breaking video into multiple chunks, the video is broken into multiple scenes of different lengths.
+  - Another optimization that is done is that Netflix places a cache called Open Connect at the ISPs. This is because all the content is in central US region
+    and fetching them to India is not a trivial task. 90% of the requests are served from these devices.
+
 ## My questions
 - When to use a reverse proxy?.
 - How do you ensure that the right videos are cached at CDN?.
