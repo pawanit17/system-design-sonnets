@@ -243,10 +243,10 @@ https://medium.com/swlh/log-structured-merge-trees-9c8e2bea89e8
 - Understand what all things you want to build
 - Pick the most important components and prepare estimates
   - Memory, Bandwidth etc
-- 
+
 ## Design Netflix
 - Questions
-  - Which sub-functions should be focuessed on?.
+  - Which sub-functions should be focussed on?.
   - Do we want to focus on authentication / payments / profile?.
   - How many users are we expecting to have?.
     - 200M
