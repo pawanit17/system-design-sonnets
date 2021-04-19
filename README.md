@@ -319,7 +319,8 @@ https://medium.com/swlh/log-structured-merge-trees-9c8e2bea89e8
   - I started following a new user X. My timeline should be updated with updates also from X starting now. Apart from DB storage, how are these handled - Kafka, Redis whats the best practise.
   - How are timelines generated?.
   - How are searches handled?.
-
+- https://www.educba.com/redis-vs-kafka/
+- https://logz.io/blog/kafka-vs-redis/
 
 
 
