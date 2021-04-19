@@ -320,7 +320,14 @@ https://medium.com/swlh/log-structured-merge-trees-9c8e2bea89e8
 
 
 
-
+## System Design Tips
+- Systems like Facebook, Twitter, LinkedIn, Reddit, Instagram have the following main features
+  - CRUD
+  - Search
+  - Timeline view
+  - Ability to follow others
+  - Suggestions on who to follow
+  - High availability + eventual consistency
 
 
 
