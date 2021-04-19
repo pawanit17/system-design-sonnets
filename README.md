@@ -314,8 +314,11 @@ https://medium.com/swlh/log-structured-merge-trees-9c8e2bea89e8
 - IXP vs Public points of CDN partnered with AT&T / Verizon.
 - Authentication fror data requests to CDN?.
 - Write through cache policy?.
-
-
+- How do you design a system like Gitlab?.
+- How should we handle cases like this:
+  - I started following a new user X. My timeline should be updated with updates also from X starting now. Apart from DB storage, how are these handled - Kafka, Redis whats the best practise.
+  - How are timelines generated?.
+  - How are searches handled?.
 
 
 
@@ -328,6 +331,8 @@ https://medium.com/swlh/log-structured-merge-trees-9c8e2bea89e8
   - Ability to follow others
   - Suggestions on who to follow
   - High availability + eventual consistency
+- Most systems are READ heavy 
+  - See if you can prove if the system is READ heavy.
 
 
 
