@@ -333,6 +333,13 @@ https://medium.com/swlh/log-structured-merge-trees-9c8e2bea89e8
   - High availability + eventual consistency
 - Most systems are READ heavy 
   - See if you can prove if the system is READ heavy.
+- LRU seems to be a decent Cache replacement strategy at first sight
+  - But for scenario where there are hot users, replacing their tweets/post may not be wise as they are READ by lot of other people.
+- Load balancers are typically placed at multiple locations
+  - Between users and API servers.
+  - Between API servers and databases.
+  - Probably between API servers and caches as well.
+- Talk about replication and fault tolerance.
 
 
 
