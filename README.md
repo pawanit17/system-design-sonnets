@@ -308,6 +308,30 @@ https://medium.com/swlh/log-structured-merge-trees-9c8e2bea89e8
   - Another optimization that is done is that Netflix places a cache called Open Connect at the ISPs. This is because all the content is in central US region
     and fetching them to India is not a trivial task. 90% of the requests are served from these devices.
 
+## LinkedIn Search Architecture
+- Based on Galene, which is build on top of Lucene.
+- Needs faceting, relevance, updates without having to create a new document.
+
+- Datasets in LinkedIn are either
+  - ETL'ed to Hadoop
+    - This has the complete dataset
+  - Real time change notification team
+    - Delta dataset
+    - Person X is following Person Y
+    - Change to only part of the document, not update to entire document.
+ 
+- Galene Anatomy 
+  - Base Index
+    - Built by Hadoop periodically
+    - Immutable, on disk
+  - Live Index
+    - Inverted index
+    - In memory data structure
+    - Contains incremental updates to the documents
+
+ 
+
+
 ## My questions
 - When to use a reverse proxy?.
 - How do you ensure that the right videos are cached at CDN?.
@@ -321,6 +345,8 @@ https://medium.com/swlh/log-structured-merge-trees-9c8e2bea89e8
   - How are searches handled?.
 - https://www.educba.com/redis-vs-kafka/
 - https://logz.io/blog/kafka-vs-redis/
+
+
 
 
 
