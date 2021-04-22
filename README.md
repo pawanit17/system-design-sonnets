@@ -331,6 +331,7 @@ https://medium.com/swlh/log-structured-merge-trees-9c8e2bea89e8
 
 ## Twitter Search
 - Source: https://www.infoq.com/presentations/Twitter-Timeline-Scalability/
+- What does Twitter stand for: https://www.youtube.com/watch?v=VttXHNveuwI
 - Queries per second ~ 300K
 - Writing ~ 6000
 - Active users - 150M
