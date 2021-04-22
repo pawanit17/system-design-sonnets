@@ -330,6 +330,45 @@ https://medium.com/swlh/log-structured-merge-trees-9c8e2bea89e8
     - Contains incremental updates to the documents
 
 ## Twitter Search
+- Source: https://www.infoq.com/presentations/Twitter-Timeline-Scalability/
+- Queries per second ~ 300K
+- Writing ~ 6000
+- Active users - 150M
+- 400M tweets per day
+
+![image](https://user-images.githubusercontent.com/42272776/115769469-36518c00-a3c9-11eb-9f05-b8cd46a958e4.png)
+- When a Tweet is posted, it goes to the WRITE API, which starts a process called FAN OUT.
+- This process places the tweets to massive REDIS clusters.
+- Every tweet is stored in 3 machines, 3 times.
+- FAN OUT queries Social Graph Service ( who follows who ) and iterate through all the timelines that are stored in REDIS
+- So if you have 20000 followers, once you post your tweet, the FAN OUT process would query the Social Graph Service to understand where they are stored and updated all the
+entries with the new tweet id. Literally 20000 inserts are happening with just one tweet.
+![image](https://user-images.githubusercontent.com/42272776/115769769-87618000-a3c9-11eb-827f-2496e7e06943.png)
+- Cap of 800 tweets as you scroll through the timeline because it is meaningless to show up an old tweet in your timelines.
+- Every user's timeline is stored in one of these servers.
+- If the user is not logged in for the last 30 days, we skip timeline update.
+- Index of all the home timeline are stored in REDIS. User timeline are stored in DISK - MySQL.
+- If there is a miss, then the big query on the database is done and the data is loaded onto REDIS as soon as possible.
+- So Timeline Service, just does a cache look up ( possible 3 servers ) and returns the one that got returned the fastest.
+![image](https://user-images.githubusercontent.com/42272776/115770548-7bc28900-a3ca-11eb-9131-fb181992a2d9.png)
+
+- Search
+  - Every single EarlyBird shard is asked about a match.
+  - EarlyBird is a Lucene Index.
+  ![image](https://user-images.githubusercontent.com/42272776/115771457-91847e00-a3cb-11eb-917d-d23b62e3d11a.png)
+
+![image](https://user-images.githubusercontent.com/42272776/115771626-cf81a200-a3cb-11eb-95fe-a2cd84cdb35f.png)
+
+- Tweet Post vs Tweet Search
+![image](https://user-images.githubusercontent.com/42272776/115772110-5df62380-a3cc-11eb-9890-443f67341c86.png)
+
+- This architecture can introuced Race conditions. Ex: Tweet from Lady Gaga may appear to one of her followers X before Y. And if Y also follows X and X replies or retweets Lady Gaga's tweet, then Y could potentially see X's reply to Lady Gaga's tweet first followed by the original tweet.
+- These are resolved by sorting the tweets based on tweet ids.
+- To handle the celebrities, there are different ways that Twitter is looking at like merging just before content is distributed.
+
+![image](https://user-images.githubusercontent.com/42272776/115773822-60597d00-a3ce-11eb-8d38-b69cf087587e.png)
+
+
 ![image](https://user-images.githubusercontent.com/42272776/115759468-e4efcf80-a3bd-11eb-928c-9948b182e24a.png)
 
 ![image](https://user-images.githubusercontent.com/42272776/115759516-f46f1880-a3bd-11eb-9556-98527cd75662.png)
