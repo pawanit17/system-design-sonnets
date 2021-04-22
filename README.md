@@ -329,6 +329,12 @@ https://medium.com/swlh/log-structured-merge-trees-9c8e2bea89e8
     - In memory data structure
     - Contains incremental updates to the documents
 
+## Twitter Search
+![image](https://user-images.githubusercontent.com/42272776/115759468-e4efcf80-a3bd-11eb-928c-9948b182e24a.png)
+
+![image](https://user-images.githubusercontent.com/42272776/115759516-f46f1880-a3bd-11eb-9556-98527cd75662.png)
+
+
  
 
 
