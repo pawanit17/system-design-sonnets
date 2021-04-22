@@ -359,6 +359,7 @@ entries with the new tweet id. Literally 20000 inserts are happening with just o
   ![image](https://user-images.githubusercontent.com/42272776/115771457-91847e00-a3cb-11eb-917d-d23b62e3d11a.png)
 
 ![image](https://user-images.githubusercontent.com/42272776/115771626-cf81a200-a3cb-11eb-95fe-a2cd84cdb35f.png)
+![image](https://user-images.githubusercontent.com/42272776/115778165-dd3b2580-a3d3-11eb-884b-0792280f232c.png)
 
 - Tweet Post vs Tweet Search
 ![image](https://user-images.githubusercontent.com/42272776/115772110-5df62380-a3cc-11eb-9890-443f67341c86.png)
@@ -366,6 +367,7 @@ entries with the new tweet id. Literally 20000 inserts are happening with just o
 - This architecture can introuced Race conditions. Ex: Tweet from Lady Gaga may appear to one of her followers X before Y. And if Y also follows X and X replies or retweets Lady Gaga's tweet, then Y could potentially see X's reply to Lady Gaga's tweet first followed by the original tweet.
 - These are resolved by sorting the tweets based on tweet ids.
 - To handle the celebrities, there are different ways that Twitter is looking at like merging just before content is distributed.
+- If two people are talking, their mutual friends alone would receive notifications.
 
 ![image](https://user-images.githubusercontent.com/42272776/115773822-60597d00-a3ce-11eb-8d38-b69cf087587e.png)
 
