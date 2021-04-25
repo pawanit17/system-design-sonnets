@@ -244,7 +244,7 @@ https://medium.com/swlh/log-structured-merge-trees-9c8e2bea89e8
 - Pick the most important components and prepare estimates
   - Memory, Bandwidth etc
 
-## Design Netflix
+## :gear: Design Netflix
 - Questions
   - Which sub-functions should be focussed on?.
   - Do we want to focus on authentication / payments / profile?.
@@ -329,7 +329,7 @@ https://medium.com/swlh/log-structured-merge-trees-9c8e2bea89e8
     - In memory data structure
     - Contains incremental updates to the documents
 
-## Twitter Search
+## :gear: Twitter Search
 - Source: https://www.infoq.com/presentations/Twitter-Timeline-Scalability/
 - What does Twitter stand for: https://www.youtube.com/watch?v=VttXHNveuwI
 - Queries per second ~ 300K
