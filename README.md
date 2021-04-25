@@ -383,10 +383,44 @@ entries with the new tweet id. Literally 20000 inserts are happening with just o
 ![image](https://user-images.githubusercontent.com/42272776/115778987-04debd80-a3d5-11eb-8688-7ccf2b3469fe.png)
 
 ## :gear: Design TikTok
+- Requirements
+  - Mobile app, video sharing, upload video, follow users, activities on the video, timeline and suggestions (trending).
+  - Scalable, May not be realtime, Low Latency and high available.
+- Calculations
+  - Number of active users - 10M
+  - Number of videos uploaded by a user - 2, but 1 in 1000 users would create it.
+  - How much does a video occupy in size - 5MB
+  - Total number of videos uploaded by users per day - 10000000 / 1000 * 5MB = 50000 MB per day  
+  - How much storage do we need to have in 10 years - 50000 * 365 * 10MB = 180M MB
+  - Views per day - 50 per video = 10M * 50 = 500M
+  - Read Heavy System
+- Design
+  - Database
+    - UserID, Url, metadata
+      - Videos are stored in S3. DB Table has entry to the corresponding URL in it.
+      - Videos can be brought to the CDN so that their loading time also decreases.
+    - UserID, UserID ( follows )
+      - This can be stored in an RDBMs with horizontal partition based on UserID to improve performance.
+  - Activities
+    - Reply to comments?. How many levels?.
+  - Timeline generation
+  - Following
+  - Generating suggestions
+- Bottlenecks
+  - Famous person creating videos
+  - Region specific caching
+  - Go with CDNs
+  - Have READ replicas and WRITE master
+  - Sharding service ( based on GEO, based on User ID, based on hash function )
+  - Or Apache Cassandra could be a good choice.
+
+![Tiktok System Design](https://user-images.githubusercontent.com/42272776/116007337-ed9a0d00-a62c-11eb-8561-986bb97596b2.jpg)
+
 
 
 ## My questions
 - When to use a reverse proxy?.
+- What is XMPP?.
 - How do you ensure that the right videos are cached at CDN?.
 - IXP vs Public points of CDN partnered with AT&T / Verizon.
 - Authentication fror data requests to CDN?.
