@@ -396,6 +396,13 @@ entries with the new tweet id. Literally 20000 inserts are happening with just o
 - How should we handle cases like this:
   - I started following a new user X. My timeline should be updated with updates also from X starting now. Apart from DB storage, how are these handled - Kafka, Redis whats the best practise.
   - How are timelines generated?.
+    - Usually timeline construction is a costly operation.
+    - So they are precomputed.
+    - For every user, the latest updates from the people that user follows is identified and is put into a REDIS cache.
+    - Whenever a user follows a new user or a new post is made by the users who the current user follows, it will place an update request to this computed information.
+    - This information is then pushed to the end users.
+    - However, if the user being followed is a Celebrity, then there are going to be several hundreds of users who would be also following. In this case, in stead of a push, 
+      a pull model can be employed. So the user has to explicitly do a refresh to ensure that the latest information from the celebrities is extracted.
   - How are searches handled?.
 - https://www.educba.com/redis-vs-kafka/
 - https://logz.io/blog/kafka-vs-redis/
