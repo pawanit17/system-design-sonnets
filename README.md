@@ -372,7 +372,6 @@ entries with the new tweet id. Literally 20000 inserts are happening with just o
 
 ![image](https://user-images.githubusercontent.com/42272776/115773822-60597d00-a3ce-11eb-8d38-b69cf087587e.png)
 
-
 ![image](https://user-images.githubusercontent.com/42272776/115759468-e4efcf80-a3bd-11eb-928c-9948b182e24a.png)
 
 ![image](https://user-images.githubusercontent.com/42272776/115759516-f46f1880-a3bd-11eb-9556-98527cd75662.png)
@@ -383,7 +382,7 @@ entries with the new tweet id. Literally 20000 inserts are happening with just o
 - Flock - is a social graph of who follows who.
 ![image](https://user-images.githubusercontent.com/42272776/115778987-04debd80-a3d5-11eb-8688-7ccf2b3469fe.png)
 
- 
+## :gear: Design TikTok
 
 
 ## My questions
@@ -406,10 +405,6 @@ entries with the new tweet id. Literally 20000 inserts are happening with just o
   - How are searches handled?.
 - https://www.educba.com/redis-vs-kafka/
 - https://logz.io/blog/kafka-vs-redis/
-
-
-
-
 
 ## System Design Tips
 - Systems like Facebook, Twitter, LinkedIn, Reddit, Instagram have the following main features
