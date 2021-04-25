@@ -413,6 +413,7 @@ entries with the new tweet id. Literally 20000 inserts are happening with just o
   - Have READ replicas and WRITE master
   - Sharding service ( based on GEO, based on User ID, based on hash function )
   - Or Apache Cassandra could be a good choice.
+  - For more information on the database part, refer the below section on *My questions*.
 
 ![Tiktok System Design](https://user-images.githubusercontent.com/42272776/116007337-ed9a0d00-a62c-11eb-8561-986bb97596b2.jpg)
 
@@ -421,6 +422,15 @@ entries with the new tweet id. Literally 20000 inserts are happening with just o
 ## My questions
 - When to use a reverse proxy?.
 - What is XMPP?.
+- How to handle billion-row tables in databases
+  - https://www.youtube.com/watch?v=wj7KEMEkMUE
+  - Dont do any action and live with the table as it
+  - Add index on the table
+  - Add parition on the table ( each partition has a index pointer ) with a parition key
+  - Add shards for the table and distribute the database - each machine has a piece of database which is partitioned and each partition will have an index pointer to it.
+  - Use Map Reduce / Hadoop to do processing on the large database.
+  - Use a different approach where you add the collection of following users in the form of a list of JSON - most RDBMS now support this.
+  - Denormalize everything and put it in a NoSQL DB document.
 - How do you ensure that the right videos are cached at CDN?.
 - IXP vs Public points of CDN partnered with AT&T / Verizon.
 - Authentication fror data requests to CDN?.
