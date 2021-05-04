@@ -450,6 +450,21 @@ entries with the new tweet id. Literally 20000 inserts are happening with just o
 - https://www.educba.com/redis-vs-kafka/
 - https://logz.io/blog/kafka-vs-redis/
 
+## How do keyfobs work and how does authentication hold good?.
+- When a user is assigned a keyfob, either soft or hard a seed is generated in the system.
+- This seed is placed in the keyfob as well.
+- Keyfob has a clock internally which is used in the new code generation algorithm.
+- The code generation algorithm takes two parts as input - seed and current time ( or time interval ) and computes a hash over them.
+- Since hashes are usually large ~ 128 bits, the least significant 24 bits ( it takes 4 bits to represent a digit and the code has 6 digits ) can be returned.
+- When the code is generated and is used by the user for entering into the system, the server tries to authenticate using the same logic.
+- The server knows the seed used for the token and also the current time interval.
+- If they match, the authentication will be successful.
+- 6 digit number has 10^6 possibilities and the keyfob changes code every 30 seconds.
+- If incorrect entries are made, the application will ask the user to enter the next code form the keyfob.
+- Also reverse engineering the algorithm is also not possible and is tamper proof.
+- https://stackoverflow.com/a/13130157/815961
+- ![image](https://user-images.githubusercontent.com/42272776/116968285-d1a00680-acd1-11eb-95d3-9a9556ecea20.png)
+
 ## System Design Tips
 - Systems like Facebook, Twitter, LinkedIn, Reddit, Instagram have the following main features
   - CRUD
