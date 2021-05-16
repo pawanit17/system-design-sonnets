@@ -482,6 +482,7 @@ entries with the new tweet id. Literally 20000 inserts are happening with just o
   - Between API servers and databases.
   - Probably between API servers and caches as well.
 - Talk about replication and fault tolerance.
+- Shopping carts for non registered users / guest users is an in-session object.
 
 
 
