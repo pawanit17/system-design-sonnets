@@ -485,6 +485,8 @@ entries with the new tweet id. Literally 20000 inserts are happening with just o
 - Shopping carts for non registered users / guest users is an in-session object.
 - Idempotent : A op B = A op B op B
   - If a user clicks on like button and the response fails. Then the subsequent click by user does not impact anything.
+- Attribute/Enumeration vs Class Hierarchy
+  - 
 
 
 
