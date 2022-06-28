@@ -488,7 +488,8 @@ entries with the new tweet id. Literally 20000 inserts are happening with just o
 - Attribute/Enumeration vs Class Hierarchy
   - 
 
-
+# Decomposing Monolith to Microservices
+- https://www.youtube.com/watch?v=_azoxefUs_Y
 
 
 
